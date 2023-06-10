@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const { v4: uuidv4 } = require("uuid");
+const Post = require("../models/post");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -9,9 +10,14 @@ router.get("/", function (req, res, next) {
 
 // POST - create a new post
 router.post("/", (req, res) => {
-  const id = uuidv4();
+  const post = new Post{
+    id: uuidv4(),
+    title: req.body.title,
+    information: req.body.information,
+    author: req.body.author,
+  };
 
-  return res.send("POST");
+  return res.send([post]);
 });
 
 //PUT
