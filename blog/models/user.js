@@ -7,3 +7,5 @@ const User = new Schema({
   name: { type: String },
   email: { type: String },
 });
+
+module.exports = User;
