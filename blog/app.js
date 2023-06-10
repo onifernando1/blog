@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const postsRouter = require("./routes/posts");
-const User = require("./models/userModel");
+const User = require("./models/user");
 const bcrypt = require("bcryptjs");
 
 //mongoose
