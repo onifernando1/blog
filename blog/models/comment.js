@@ -5,4 +5,5 @@ const Comment = new Schema({
   information: { type: String },
   author: { type: Schema.Types.ObjectId, ref: "User", required: true },
   postId: { type: Schema.Types.ObjectId, ref: "Post" },
+  comments: { type: Array },
 });
