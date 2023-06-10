@@ -7,8 +7,10 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-// POST
+// POST - create a new post
 router.post("/", (req, res) => {
+  const id = uuidv4();
+
   return res.send("POST");
 });
 
