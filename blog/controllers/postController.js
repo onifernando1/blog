@@ -1,5 +1,6 @@
 const Post = require("../models/post");
 const asyncHandler = require("express-async-handler");
+const { v4: uuidv4 } = require("uuid");
 
 //Show all posts
 
@@ -10,18 +11,26 @@ exports.post_list = asyncHandler(async (req, res, next) => {
 // Show specific post
 
 exports.post_detail = asyncHandler(async (req, res, next) => {
-  res.send(`Author detail ${req.params.id}`);
+  res.send(`post detail ${req.params.id}`);
 });
 
 // Post create form
 
 exports.post_create_get = asyncHandler(async (req, res, next) => {
-  res.send("Author create GET");
+  res.send("post create GET");
 });
 
 // Create post on POST
 exports.post_create_post = asyncHandler(async (req, res, next) => {
-  res.send("Create post POST");
+  const post = new Post({
+    id: uuidv4(),
+    title: req.body.title,
+    information: req.body.information,
+    author: req.body.author,
+  });
+  await post.save();
+
+  res.send(post);
 });
 
 //Display delete form on GET
