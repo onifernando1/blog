@@ -13,3 +13,5 @@ function NewPostForm(params) {
     </>
   );
 }
+
+export default NewPostForm;
