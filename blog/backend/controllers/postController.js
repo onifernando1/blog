@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require("uuid");
 
 exports.post_list = asyncHandler(async (req, res, next) => {
   const allPosts = await Post.find({}).exec();
-  res.send("post_list", { title: "Post list", post_list: allPosts });
+  res.json({ title: "Post list", post_list: allPosts });
 });
 
 // Show specific post

@@ -13,6 +13,7 @@ const usersRouter = require("./routes/users");
 const postsRouter = require("./routes/posts");
 const User = require("./models/user");
 const bcrypt = require("bcryptjs");
+const cors = require("cors");
 
 //mongoose
 
@@ -71,6 +72,7 @@ passport.deserializeUser(async function (id, done) {
 });
 
 const app = express();
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
