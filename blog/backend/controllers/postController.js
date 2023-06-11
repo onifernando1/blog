@@ -33,8 +33,9 @@ exports.post_create_post = asyncHandler(async (req, res, next) => {
     id: uuidv4(),
     title: req.body.title,
     information: req.body.information,
-    author: req.body.author,
+    // author: req.body.author,
   });
+
   await post.save();
 
   res.send(post);

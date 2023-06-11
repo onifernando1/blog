@@ -14,6 +14,7 @@ const postsRouter = require("./routes/posts");
 const User = require("./models/user");
 const bcrypt = require("bcryptjs");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 
 //mongoose
 
@@ -73,6 +74,7 @@ passport.deserializeUser(async function (id, done) {
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
@@ -87,11 +89,10 @@ app.engine("pug", require("pug").__express);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.use(logger("dev"));
+app.use(express.json()); // changed position
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/posts", postsRouter);
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
