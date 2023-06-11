@@ -10,12 +10,12 @@ router.get("/", function (req, res, next) {
 
 // POST - create a new post
 router.post("/", (req, res) => {
-  const post = new Post{
+  const post = new Post({
     id: uuidv4(),
     title: req.body.title,
     information: req.body.information,
     author: req.body.author,
-  };
+  });
 
   return res.send([post]);
 });
