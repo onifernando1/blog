@@ -7,3 +7,5 @@ const Comment = new Schema({
   postId: { type: Schema.Types.ObjectId, ref: "Post" },
   comments: { type: Array },
 });
+
+module.exports = mongoose.model("Comment", Comment);
