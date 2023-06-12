@@ -1,27 +1,54 @@
 import React from "react";
 import { useState, setState } from "react";
+import axios from "axios";
 
 function SignUpForm(params) {
   const [registerName, setRegisterName] = useState("");
   const [registerUserame, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
 
+  const register = async (e) => {
+    e.preventDefault();
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const data = {
+        name: registerName,
+        username: registerUserame,
+        password: registerPassword,
+      };
+
+      const response = await axios.post(
+        "http://localhost:9000/users/signup",
+        data,
+        config
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
-      <form>
-        <label name="name">Name</label>
+      <form onSubmit={register}>
+        <label htmlFor="name">Name</label>
         <input
           type="text"
           name="name"
           onChange={(e) => setRegisterName(e.target.value)}
         ></input>
-        <label name="username">Username</label>
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           name="username"
           onChange={(e) => setRegisterUsername(e.target.value)}
         ></input>
-        <label name="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"

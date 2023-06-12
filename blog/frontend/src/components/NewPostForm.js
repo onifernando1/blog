@@ -33,11 +33,11 @@ function NewPostForm(params) {
   return (
     <>
       <form onSubmit={createPost}>
-        <label name="title">Title</label>
+        <label htmlFor="title">Title</label>
         <input type="text" name="title"></input>
-        <label name="information">Information</label>
+        <label htmlFor="information">Information</label>
         <input type="text" name="information"></input>
-        <label name="author">Author</label>
+        <label htmlFor="author">Author</label>
         <input type="text" name="author"></input>
         <input type="submit"></input>
       </form>

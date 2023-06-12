@@ -9,13 +9,13 @@ function LogInForm(params) {
   return (
     <>
       <form>
-        <label name="username">Username</label>
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           name="username"
           onChange={(e) => setLoginName(e.target.value)}
         ></input>
-        <label name="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
