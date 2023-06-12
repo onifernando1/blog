@@ -34,9 +34,13 @@ exports.user_create_post = asyncHandler(async (req, res, next) => {
   }
 });
 
+exports.user_login_get = asyncHandler(async (req, res, next) => {
+  res.send("GET USER LOGIN ");
+});
+
 exports.user_login_post = asyncHandler(async (req, res, next) => {
   passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/login",
+    successRedirect: "http://localhost:3000/",
+    failureRedirect: "http://localhost:3000/login",
   })(req, res, next);
 });

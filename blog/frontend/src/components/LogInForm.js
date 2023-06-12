@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 
 function LogInForm(params) {
-  const [loginUserame, setLoginUsername] = useState("");
+  const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
   const login = async (e) => {
@@ -16,16 +16,15 @@ function LogInForm(params) {
       };
 
       const data = {
-        username: loginUserame,
+        username: loginUsername,
         password: loginPassword,
       };
 
       const response = await axios.post(
-        "http://localhost:9000/users/signup",
+        "http://localhost:9000/users/login",
         data,
         config
       );
-      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
