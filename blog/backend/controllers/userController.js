@@ -12,14 +12,24 @@ exports.user_create_get = asyncHandler(async (req, res, next) => {
 
 // Create user on POST
 exports.user_create_post = asyncHandler(async (req, res, next) => {
-  const user = new User({
-    id: uuidv4(),
-    name: req.body.name,
-    username: req.body.username,
-    password: req.body.password,
-  });
+  try {
+    const hashedPassword = await new Promise((resolve, reject) => {
+      bcrypt.hash(req.body.password, 10, (err, hashed) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(hashed);
+      });
+    });
 
-  await user.save();
-
-  res.send(user);
+    const user = new User({
+      username: req.body.username,
+      password: hashedPassword,
+      name: req.body.name,
+    });
+    const result = await user.save();
+    res.redirect("/");
+  } catch (err) {
+    return next(err);
+  }
 });
