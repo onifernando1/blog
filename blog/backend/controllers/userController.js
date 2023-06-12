@@ -39,8 +39,23 @@ exports.user_login_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.user_login_post = asyncHandler(async (req, res, next) => {
-  passport.authenticate("local", {
-    successRedirect: "http://localhost:3000/",
-    failureRedirect: "http://localhost:3000/login",
-  })(req, res, next);
+  console.log("Called");
+  passport.authenticate("local", (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res.redirect("http://localhost:3000/login");
+    }
+    req.logIn(user, (err) => {
+      if (err) {
+        return next(err);
+      }
+      res.json(user);
+    });
+  })(req, res, next); // Invoke the passport.authenticate middleware function
+});
+
+exports.user_get = asyncHandler(async (req, res, next) => {
+  res.json({ current_user: res.locals.currentUser });
 });

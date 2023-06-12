@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 function LogInForm(params) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [user, setUser] = useState("");
 
   const login = async (e) => {
     e.preventDefault();
@@ -20,11 +21,17 @@ function LogInForm(params) {
         password: loginPassword,
       };
 
+      console.log(data);
+
       const response = await axios.post(
         "http://localhost:9000/users/login",
         data,
         config
       );
+
+      setUser(response.data);
+
+      console.log(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -49,6 +56,7 @@ function LogInForm(params) {
         ></input>
         <input type="submit"></input>
       </form>
+      <div>U:{user.username}</div>
     </>
   );
 }

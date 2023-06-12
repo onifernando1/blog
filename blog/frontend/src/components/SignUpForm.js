@@ -1,11 +1,18 @@
 import React from "react";
-import { useState, setState } from "react";
+import { useState, setState, useEffect } from "react";
 import axios from "axios";
 
 function SignUpForm(params) {
   const [registerName, setRegisterName] = useState("");
   const [registerUserame, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  const [currentUser, setCurrentUser] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:9000/users").then((res) =>
+      res.json().then((data) => setCurrentUser(data.current_user))
+    );
+  }, []);
 
   const register = async (e) => {
     e.preventDefault();
@@ -59,7 +66,9 @@ function SignUpForm(params) {
         ></input>
         <input type="submit"></input>
       </form>
-      <div>{registerName}</div>
+      {/* <div>{registerName}</div> */}
+      <div>{currentUser}</div>
+      <div>aa</div>
     </>
   );
 }

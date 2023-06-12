@@ -50,6 +50,8 @@ passport.use(
       });
 
       if (passwordMatch) {
+        console.log(user);
+        console.log("pw match above");
         return done(null, user);
       }
       return done(null, false, { message: "Incorrect password" });
@@ -60,10 +62,12 @@ passport.use(
 );
 
 passport.serializeUser(function (user, done) {
+  console.log("SERIALIZE");
   done(null, user.id);
 });
 
 passport.deserializeUser(async function (id, done) {
+  console.log("DESERIALIZE");
   try {
     const user = await User.findById(id);
     done(null, user);
@@ -73,15 +77,26 @@ passport.deserializeUser(async function (id, done) {
 });
 
 const app = express();
+app.use(express.json()); // changed position again
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json()); // changed position again
-app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
+app.use(
+  session({
+    secret: "cats",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
+  console.log("hi");
+  console.log(req);
+  console.log(req.user);
+  console.log(res.locals.currentUser);
+  console.log("APP USE USER ABOVE ME ");
   next();
 });
 
