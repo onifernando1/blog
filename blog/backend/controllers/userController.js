@@ -1,6 +1,8 @@
 const User = require("../models/user.js");
 const asyncHandler = require("express-async-handler");
 const { v4: uuidv4 } = require("uuid");
+const passport = require("passport");
+const bcrypt = require("bcryptjs");
 
 // Create User signup form
 
