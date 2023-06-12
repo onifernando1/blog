@@ -17,7 +17,7 @@ exports.user_create_post = asyncHandler(async (req, res, next) => {
     password: req.body.password,
   });
 
-  await post.save();
+  await user.save();
 
-  res.send(post);
+  res.send(user);
 });
