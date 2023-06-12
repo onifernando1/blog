@@ -35,7 +35,9 @@ exports.user_create_post = asyncHandler(async (req, res, next) => {
 });
 
 exports.user_login_get = asyncHandler(async (req, res, next) => {
-  res.send("GET USER LOGIN ");
+  console.log(res.locals.currentUser);
+  console.log("heya heya a");
+  res.json({ user: res.locals.currentUser });
 });
 
 exports.user_login_post = asyncHandler(async (req, res, next) => {
@@ -51,11 +53,9 @@ exports.user_login_post = asyncHandler(async (req, res, next) => {
       if (err) {
         return next(err);
       }
+      req.session.user = user;
+      console.log(req.session);
       res.json(user);
     });
   })(req, res, next); // Invoke the passport.authenticate middleware function
-});
-
-exports.user_get = asyncHandler(async (req, res, next) => {
-  res.json({ current_user: res.locals.currentUser });
 });

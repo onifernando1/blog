@@ -67,36 +67,38 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(async function (id, done) {
-  console.log("DESERIALIZE");
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).exec();
     done(null, user);
   } catch (err) {
     done(err);
   }
 });
-
 const app = express();
+app.use(express.static(path.join(__dirname, "public"))); // moved
 app.use(express.json()); // changed position again
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   session({
     secret: "cats",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    cookie: {
+      secure: false, // Allow cookie over HTTP
+    },
   })
 );
 app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  console.log("hi");
-  console.log(req);
-  console.log(req.user);
-  console.log(res.locals.currentUser);
-  console.log("APP USE USER ABOVE ME ");
   next();
 });
 
@@ -109,7 +111,6 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/posts", postsRouter);
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
 
 app.use(function (req, res, next) {
   next(createError(404));
