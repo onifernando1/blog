@@ -37,6 +37,6 @@ exports.user_create_post = asyncHandler(async (req, res, next) => {
 exports.user_login_post = asyncHandler(async (req, res, next) => {
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/users/log-in",
-  });
+    failureRedirect: "/login",
+  })(req, res, next);
 });
