@@ -13,12 +13,14 @@ function LogInForm(params) {
         <input
           type="text"
           name="username"
+          id="username"
           onChange={(e) => setLoginName(e.target.value)}
         ></input>
         <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
+          id="password"
           onChange={(e) => setLoginPassword(e.target.value)}
         ></input>
         <input type="submit"></input>

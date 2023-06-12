@@ -33,3 +33,10 @@ exports.user_create_post = asyncHandler(async (req, res, next) => {
     return next(err);
   }
 });
+
+exports.user_login_post = asyncHandler(async (req, res, next) => {
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/users/log-in",
+  });
+});
