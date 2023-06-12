@@ -40,18 +40,21 @@ function SignUpForm(params) {
         <input
           type="text"
           name="name"
+          id="name"
           onChange={(e) => setRegisterName(e.target.value)}
         ></input>
         <label htmlFor="username">Username</label>
         <input
           type="text"
           name="username"
+          id="username"
           onChange={(e) => setRegisterUsername(e.target.value)}
         ></input>
         <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
+          id="password"
           onChange={(e) => setRegisterPassword(e.target.value)}
         ></input>
         <input type="submit"></input>
