@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import("../assets/styles/navbar.css");
 
 function Navbar(params) {
   axios.defaults.withCredentials = true;
@@ -18,11 +19,25 @@ function Navbar(params) {
 
   return (
     <div>
-      <Link to="/">Home</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/signup">Signup</Link>
-      <Link to="/posts/create">Create Post</Link>
-      <button onClick={logout}>Log out </button>
+      <div className="navbar-container">
+        <div className="logo">
+          <Link to="/">Oni</Link>
+        </div>
+
+        <div className="links-container">
+          <div className="user-stuff">
+            <div>
+              <Link to="/login">Login</Link>
+            </div>
+            <div>
+              <Link to="/signup">Sign Up</Link>
+            </div>
+            <div>
+              <button onClick={logout}>Log out </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
