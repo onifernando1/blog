@@ -11,7 +11,7 @@ exports.post_list = asyncHandler(async (req, res, next) => {
 
 // Show specific post
 
-exports.post_detail = asyncHandler(async (req, res, next) => {
+exports.post_detail_get = asyncHandler(async (req, res, next) => {
   const post = await Promise.all([Post.findById(req.params.id), exec()]);
   if (post === null) {
     const err = new Error("Book not found");

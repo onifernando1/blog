@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState, setState } from "react";
 import axios from "axios";
 import "../assets/styles/home.css";
+import { Link } from "react-router-dom";
 
 function Home(params) {
   axios.defaults.withCredentials = true;
@@ -27,14 +28,16 @@ function Home(params) {
           {posts.map((post) => {
             return (
               <>
-                <div className="individual-blog-container grow">
-                  <div class="blog-image">
-                    <img
-                      src={require(`../assets/images/${post.image}.jpg`)}
-                    ></img>
+                <Link to={`/posts/:${post._id}`}>
+                  <div className="individual-blog-container grow">
+                    <div class="blog-image">
+                      <img
+                        src={require(`../assets/images/${post.image}.jpg`)}
+                      ></img>
+                    </div>
+                    <div className="blog-title">{post.title}</div>
                   </div>
-                  <div className="blog-title">{post.title}</div>
-                </div>
+                </Link>
               </>
             );
           })}

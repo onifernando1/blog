@@ -5,6 +5,7 @@ import NewPostForm from "./components/NewPostForm";
 import LogInForm from "./components/LogInForm";
 import SignUpForm from "./components/SignUpForm";
 import Navbar from "./components/navbar";
+import Post from "./components/Post";
 
 const RouteSwitch = () => {
   return (
@@ -17,6 +18,7 @@ const RouteSwitch = () => {
           <Route path="/posts/create" element={<NewPostForm />} />
           <Route path="/login" element={<LogInForm />} />
           <Route path="/signup" element={<SignUpForm />} />
+          <Route path="/posts/:id" element={<Post />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -38,6 +38,6 @@ router.get(":id/update", postController.post_update_get);
 router.post(":id/update", postController.post_update_post);
 
 //GET request for one post
-router.get(":/id", postController.post_detail);
+router.get(":/id", postController.post_detail_get);
 
 module.exports = router;
