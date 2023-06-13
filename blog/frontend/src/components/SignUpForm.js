@@ -8,12 +8,6 @@ function SignUpForm(params) {
   const [registerPassword, setRegisterPassword] = useState("");
   const [currentUser, setCurrentUser] = useState("");
 
-  useEffect(() => {
-    fetch("http://localhost:9000/users").then((res) =>
-      res.json().then((data) => setCurrentUser(data.current_user))
-    );
-  }, []);
-
   const register = async (e) => {
     e.preventDefault();
     try {

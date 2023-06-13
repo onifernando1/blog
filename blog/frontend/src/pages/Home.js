@@ -19,8 +19,6 @@ function Home(params) {
       });
   }, []);
 
-  const viewTitle = () => {};
-
   return (
     <div>
       <div className="home-container">
@@ -29,10 +27,7 @@ function Home(params) {
           {posts.map((post) => {
             return (
               <>
-                <div
-                  onMouseOver={viewTitle}
-                  className="individual-blog-container"
-                >
+                <div className="individual-blog-container grow">
                   <div class="blog-image">
                     <img
                       src={require(`../assets/images/${post.image}.jpg`)}

@@ -26,10 +26,10 @@ function Navbar(params) {
 
         <div className="links-container">
           <div className="user-stuff">
-            <div>
+            <div className="login">
               <Link to="/login">Login</Link>
             </div>
-            <div>
+            <div className="signup">
               <Link to="/signup">Sign Up</Link>
             </div>
             <div>

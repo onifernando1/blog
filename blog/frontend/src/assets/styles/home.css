@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif, "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: sans-serif, "Gill Sans MT", Calibri, "Trebuchet MS";
 }
 
 .home-container {
@@ -62,4 +62,12 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: bold;
+}
+
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
 }
