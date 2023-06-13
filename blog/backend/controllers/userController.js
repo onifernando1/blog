@@ -59,3 +59,14 @@ exports.user_login_post = asyncHandler(async (req, res, next) => {
     });
   })(req, res, next); // Invoke the passport.authenticate middleware function
 });
+
+// log out
+
+exports.user_logout = asyncHandler(async (req, res, next) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+  });
+  res.send("Logged out ");
+});
