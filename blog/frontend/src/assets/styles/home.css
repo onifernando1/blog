@@ -27,7 +27,7 @@
 .blog-image > img {
   height: 23rem;
   width: 23rem;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .blog-title {
