@@ -5,7 +5,6 @@ import "../assets/styles/home.css";
 
 function Home(params) {
   axios.defaults.withCredentials = true;
-
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -20,6 +19,8 @@ function Home(params) {
       });
   }, []);
 
+  const viewTitle = () => {};
+
   return (
     <div>
       <div className="home-container">
@@ -28,13 +29,17 @@ function Home(params) {
           {posts.map((post) => {
             return (
               <>
-                <div>
-                  <img
-                    src={require(`../assets/images/${post.image}.jpg`)}
-                  ></img>
+                <div
+                  onMouseOver={viewTitle}
+                  className="individual-blog-container"
+                >
+                  <div class="blog-image">
+                    <img
+                      src={require(`../assets/images/${post.image}.jpg`)}
+                    ></img>
+                  </div>
+                  <div className="blog-title">{post.title}</div>
                 </div>
-                <div>{post.title}</div>
-                <div>{post.information}</div>
               </>
             );
           })}
