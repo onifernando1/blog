@@ -1,8 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useParams } from "react-router-dom";
 
-function Post(params) {
-  return <div>Post</div>;
+function Post() {
+  const { id } = useParams();
+  console.log(id);
+  return <div>Post {id}</div>;
 }
 
 export default Post;

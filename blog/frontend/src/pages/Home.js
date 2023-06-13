@@ -28,7 +28,7 @@ function Home(params) {
           {posts.map((post) => {
             return (
               <>
-                <Link to={`/posts/:${post._id}`}>
+                <Link to={`/posts/${post._id}`}>
                   <div className="individual-blog-container grow">
                     <div class="blog-image">
                       <img
