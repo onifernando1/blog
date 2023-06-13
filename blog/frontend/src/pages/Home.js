@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState, setState } from "react";
 import axios from "axios";
+import "../assets/styles/home.css";
 
 function Home(params) {
   axios.defaults.withCredentials = true;
