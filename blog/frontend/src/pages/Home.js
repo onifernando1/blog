@@ -24,7 +24,7 @@ function Home(params) {
   return (
     <div>
       <div className="home-container">
-        <div>Oni Fernando blogs</div>
+        {/* <div>Oni Fernando blogs</div> */}
         <div className="blog-home-container">
           {posts.map((post) => {
             return (
