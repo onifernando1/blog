@@ -33,6 +33,7 @@ exports.post_create_post = asyncHandler(async (req, res, next) => {
     id: uuidv4(),
     title: req.body.title,
     information: req.body.information,
+    image: req.body.image,
     // author: req.body.author,
   });
 

@@ -10,6 +10,7 @@ function NewPostForm(params) {
       title: e.target.elements.title.value,
       information: e.target.elements.information.value,
       author: e.target.elements.author.value,
+      image: e.target.elements.image.value,
     };
     try {
       const config = {
@@ -37,6 +38,8 @@ function NewPostForm(params) {
         <input type="text" name="title" id="title"></input>
         <label htmlFor="information">Information</label>
         <input type="text" name="information" id="information"></input>
+        <label htmlFor="image">Image</label>
+        <input type="text" name="image" id="image"></input>
         <label htmlFor="author">Author</label>
         <input type="text" name="author" id="author"></input>
         <input type="submit"></input>

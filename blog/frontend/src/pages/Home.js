@@ -4,13 +4,15 @@ import { useState } from "react";
 function Home(params) {
   return (
     <div>
-      <div>Oni Fernando blogs</div>
-      <div className="blog-home-container">
-        <div>Individual blog</div>
-        <div>Individual blog</div>
-        <div>Individual blog</div>
-        <div>Individual blog</div>
-        <div>Individual blog</div>
+      <div className="home-container">
+        <div>Oni Fernando blogs</div>
+        <div className="blog-home-container">
+          <div>Individual blog</div>
+          <div>Individual blog</div>
+          <div>Individual blog</div>
+          <div>Individual blog</div>
+          <div>Individual blog</div>
+        </div>
       </div>
     </div>
   );
