@@ -12,13 +12,14 @@ exports.post_list = asyncHandler(async (req, res, next) => {
 // Show specific post
 
 exports.post_detail_get = asyncHandler(async (req, res, next) => {
-  const post = await Promise.all([Post.findById(req.params.id), exec()]);
+  console.log("Method is called");
+  const post = await Post.findById(req.params.id);
   if (post === null) {
-    const err = new Error("Book not found");
+    const err = new Error("Post not found");
     err.status = 404;
     return next(err);
   }
-  res.send(`post detail ${req.params.id}: ${post}`);
+  res.send({ postData: post });
 });
 
 // Post create form
