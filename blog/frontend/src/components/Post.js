@@ -37,12 +37,13 @@ function Post() {
               <div className="detail-title">{postData.title}</div>
             </div>
             <div className="detail-post-container">
-              <div>Post {id}</div>
               <div>
                 <img src={require(`../assets/images/${image}.jpg`)}></img>
               </div>
               <div>{postData.title}</div>
-              <div>{postData.information} </div>
+              <div className="detail-post-information">
+                {postData.information}{" "}
+              </div>
             </div>
           </div>
         </>
