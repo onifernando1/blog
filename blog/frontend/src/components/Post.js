@@ -7,6 +7,7 @@ import axios from "axios";
 function Post() {
   const { id } = useParams();
   const [postData, setPostData] = useState([]);
+  const [image, setImage] = useState("beach");
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
@@ -15,6 +16,7 @@ function Post() {
       .then((response) => {
         console.log("Postdata response:", response);
         setPostData(response.data.postData);
+        setImage(response.data.postData.image);
       })
       .catch((error) => {
         console.error(error);
@@ -23,8 +25,16 @@ function Post() {
 
   return (
     <>
-      <div>Post {id}</div>
-      <div>{postData.title}</div>
+      {postData !== null ? (
+        <>
+          <div>Post {id}</div>
+          <div>
+            <img src={require(`../assets/images/${image}.jpg`)}></img>
+          </div>
+          <div>{postData.title}</div>
+          <div>{postData.information} </div>
+        </>
+      ) : null}
     </>
   );
 }
