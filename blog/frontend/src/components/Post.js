@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import "../assets/styles/post.css";
 
 function Post() {
   const { id } = useParams();
@@ -27,12 +28,23 @@ function Post() {
     <>
       {postData !== null ? (
         <>
-          <div>Post {id}</div>
-          <div>
-            <img src={require(`../assets/images/${image}.jpg`)}></img>
+          <div className="detail-container">
+            <div className="detail-background">
+              <img
+                className="detail-image"
+                src={require(`../assets/images/${image}.jpg`)}
+              ></img>
+              <div className="detail-title">{postData.title}</div>
+            </div>
+            <div className="detail-post-container">
+              <div>Post {id}</div>
+              <div>
+                <img src={require(`../assets/images/${image}.jpg`)}></img>
+              </div>
+              <div>{postData.title}</div>
+              <div>{postData.information} </div>
+            </div>
           </div>
-          <div>{postData.title}</div>
-          <div>{postData.information} </div>
         </>
       ) : null}
     </>

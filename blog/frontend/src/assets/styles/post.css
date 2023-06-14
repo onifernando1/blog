@@ -1,0 +1,23 @@
+.detail-image {
+  /* opacity: 0.5; */
+  filter: brightness(25%);
+  width: 100%;
+  height: 35rem;
+  object-fit: cover;
+}
+
+.detail-title {
+  font-size: 5rem;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.detail-background {
+  position: relative;
+}
