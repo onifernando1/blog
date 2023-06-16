@@ -14,8 +14,8 @@ function Home(params) {
       .get(`http://localhost:9000/users/login`)
       .then((response) => {
         console.log("CURRENT USER response:", response);
-        setCurrentUser(response.data.currentUser);
-        console.log(`The current user is: ${response.data.user._id}`);
+        setCurrentUser(response.data.user);
+        console.log(`The current user is: ${currentUser}`);
       })
       .catch((error) => {
         console.error(error);
@@ -39,7 +39,6 @@ function Home(params) {
       <div className="home-container">
         {/* <div>Oni Fernando blogs</div> */}
         <div className="blog-home-container">
-          {/* <div>CU is : {currentUser.user.username}</div> */}
           {posts.map((post) => {
             return (
               <>
