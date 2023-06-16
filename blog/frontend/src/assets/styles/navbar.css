@@ -44,7 +44,7 @@ a {
 }
 
 .links-container {
-  background-color: red;
+  /* background-color: red; */
   position: relative;
   padding: 20px;
   display: flex;
@@ -52,6 +52,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 }
 
 .icon {
@@ -63,9 +64,7 @@ a {
 .icon {
   transition: transform 0.5s ease-in-out;
   will-change: transform;
-}
-
-.icon:hover {
+  z-index: 2;
 }
 
 .icon-text {

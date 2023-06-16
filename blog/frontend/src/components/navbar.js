@@ -40,7 +40,7 @@ function Navbar(params) {
 
         <div className="links-container">
           <Link to="/">
-            <div className="home-icon-container">
+            <div className="home-icon-container active">
               <div className="icon-container">
                 <img
                   className="icon"
@@ -72,6 +72,7 @@ function Navbar(params) {
               <div className="icon-text">Profile</div>
             </div>
           </Link>
+          <div className="indicator"></div>
         </div>
       </div>
 
