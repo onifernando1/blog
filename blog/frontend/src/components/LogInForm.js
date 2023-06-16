@@ -39,26 +39,50 @@ function LogInForm(params) {
     }
   };
 
+  const logout = () => {
+    axios
+      .get("http://localhost:9000/users/logout")
+      .then((response) => {
+        console.log("Logout response:", response);
+        localStorage.clear();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <>
-      <form onSubmit={login}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          onChange={(e) => setLoginUsername(e.target.value)}
-        ></input>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={(e) => setLoginPassword(e.target.value)}
-        ></input>
-        <input type="submit"></input>
-      </form>
-      <div>U:{user.username}</div>
+      {!user ? (
+        <div>
+          <div>
+            <form onSubmit={login}>
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                onChange={(e) => setLoginUsername(e.target.value)}
+              ></input>
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                onChange={(e) => setLoginPassword(e.target.value)}
+              ></input>
+              <input type="submit" value="Log in"></input>
+            </form>
+            <div>U:{user.username}</div>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div>You are logged in as: {user.username}</div>
+          <div>
+            <button onClick={logout}>Log out </button>
+          </div>
+        </>
+      )}
     </>
   );
 }

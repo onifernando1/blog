@@ -20,7 +20,7 @@ const RouteSwitch = () => {
           <Route path="/login" element={<LogInForm />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/posts/:id" element={<Post />} />
-          <Route path="/profile" element={Profile} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

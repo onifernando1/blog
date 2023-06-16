@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState, setState } from "react";
+import LogInForm from "../components/LogInForm";
 
 function Profile(params) {
   axios.defaults.withCredentials = true;
@@ -38,11 +39,13 @@ function Profile(params) {
         <div className="signup">
           <Link to="/signup">Sign Up</Link>
         </div>
-        <div>
-          <button onClick={logout}>Log out </button>
-        </div>
+
         <div>CU:{currentUser}</div>
       </div>
+      <div>
+        <LogInForm />
+      </div>
+      <div>heya</div>
     </div>
   );
 }
