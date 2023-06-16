@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function LogInForm(params) {
   axios.defaults.withCredentials = true;
+  const navigate = useNavigate();
 
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -39,17 +41,6 @@ function LogInForm(params) {
     }
   };
 
-  const logout = () => {
-    axios
-      .get("http://localhost:9000/users/logout")
-      .then((response) => {
-        console.log("Logout response:", response);
-        localStorage.clear();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
   return (
     <>
       {!user ? (
@@ -78,9 +69,6 @@ function LogInForm(params) {
       ) : (
         <>
           <div>You are logged in as: {user.username}</div>
-          <div>
-            <button onClick={logout}>Log out </button>
-          </div>
         </>
       )}
     </>

@@ -15,6 +15,7 @@ const User = require("./models/user");
 const bcrypt = require("bcryptjs");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
 
 //mongoose
 
@@ -101,6 +102,7 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
+app.use(methodOverride("_method"));
 
 // view engine setup
 app.engine("pug", require("pug").__express);
