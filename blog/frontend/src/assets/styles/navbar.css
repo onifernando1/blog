@@ -72,6 +72,7 @@ a {
   position: absolute;
   transition: opacity 0.5s, transform 0.5s;
   opacity: 0;
+  transform: translateY(20px);
 }
 
 .icon-container:hover .icon {
@@ -92,16 +93,16 @@ a {
 }
 
 .home-icon-container:hover .icon-text {
-  transform: translateY(25px);
+  transform: translateY(10px);
   opacity: 1;
 }
 
 .create-container:hover .icon-text {
-  transform: translateY(25px);
+  transform: translateY(10px);
   opacity: 1;
 }
 
 .profile-container:hover .icon-text {
-  transform: translateY(25px);
+  transform: translateY(10px);
   opacity: 1;
 }
