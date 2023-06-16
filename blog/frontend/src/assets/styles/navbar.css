@@ -19,12 +19,6 @@ a {
   color: black;
 }
 
-.links-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .user-stuff {
   display: flex;
   gap: 20px;
@@ -37,6 +31,77 @@ a {
   font-weight: 100;
 }
 
+.home-icon-container,
+.create-container,
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  /* background-color: black; */
+  height: 100%;
+}
+
+.links-container {
+  background-color: red;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  gap: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .icon {
-  height: 50px;
+  height: 40px;
+  width: 40px;
+  transition: 0.5s;
+}
+
+.icon {
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.icon:hover {
+}
+
+.icon-text {
+  position: absolute;
+  transition: opacity 0.5s, transform 0.5s;
+  opacity: 0;
+}
+
+.icon-container:hover .icon {
+  transition: 0.5s;
+  transform: translateY(-20px);
+}
+
+.home-icon-container:hover .icon {
+  transform: translateY(-25px);
+}
+
+.create-container:hover .icon {
+  transform: translateY(-25px);
+}
+
+.profile-container:hover .icon {
+  transform: translateY(-25px);
+}
+
+.home-icon-container:hover .icon-text {
+  transform: translateY(25px);
+  opacity: 1;
+}
+
+.create-container:hover .icon-text {
+  transform: translateY(25px);
+  opacity: 1;
+}
+
+.profile-container:hover .icon-text {
+  transform: translateY(25px);
+  opacity: 1;
 }

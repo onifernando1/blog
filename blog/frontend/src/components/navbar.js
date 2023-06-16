@@ -39,33 +39,39 @@ function Navbar(params) {
         </div>
 
         <div className="links-container">
-          <div className="home-container">
-            <div>Home</div>
-            <div>
-              <img
-                className="icon"
-                src={require(`../assets/images/home.png`)}
-              ></img>
+          <Link to="/">
+            <div className="home-icon-container">
+              <div className="icon-container">
+                <img
+                  className="icon"
+                  src={require(`../assets/images/home.png`)}
+                ></img>
+              </div>
+              <div className="icon-text">Home</div>
             </div>
-          </div>
-          <div className="create-post-container">
-            <Link to="/posts/create">Post</Link>
-            <div>
-              <img
-                className="icon"
-                src={require(`../assets/images/create.png`)}
-              ></img>
+          </Link>
+          <Link to="/posts/create">
+            <div className="create-container">
+              <div className="icon-container">
+                <img
+                  className="icon"
+                  src={require(`../assets/images/create.png`)}
+                ></img>
+              </div>
+              <div className="icon-text">Post</div>
             </div>
-          </div>
-          <div className="profile-container">
-            <Link to="profile">Profile</Link>
-            <div>
-              <img
-                className="icon"
-                src={require(`../assets/images/user.png`)}
-              ></img>
+          </Link>
+          <Link to="profile">
+            <div className="profile-container">
+              <div className="icon-container">
+                <img
+                  className="icon"
+                  src={require(`../assets/images/user.png`)}
+                ></img>
+              </div>
+              <div className="icon-text">Profile</div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
