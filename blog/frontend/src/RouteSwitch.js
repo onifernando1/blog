@@ -6,6 +6,7 @@ import LogInForm from "./components/LogInForm";
 import SignUpForm from "./components/SignUpForm";
 import Navbar from "./components/navbar";
 import Post from "./components/Post";
+import Profile from "./pages/Profile";
 
 const RouteSwitch = () => {
   return (
@@ -19,6 +20,7 @@ const RouteSwitch = () => {
           <Route path="/login" element={<LogInForm />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/posts/:id" element={<Post />} />
+          <Route path="/profile" element={Profile} />
         </Routes>
       </BrowserRouter>
     </div>
