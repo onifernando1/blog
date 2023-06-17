@@ -5,6 +5,7 @@ const User = new Schema({
   username: { type: String },
   password: { type: String },
   name: { type: String },
+  author: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
 module.exports = mongoose.model("User", User);

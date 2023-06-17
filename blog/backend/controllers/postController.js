@@ -35,7 +35,7 @@ exports.post_create_post = asyncHandler(async (req, res, next) => {
     title: req.body.title,
     information: req.body.information,
     image: req.body.image,
-    // author: req.body.author,
+    author: req.body.author,
   });
 
   await post.save();
