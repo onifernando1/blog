@@ -67,7 +67,6 @@ function Profile(params) {
               </>
             ) : (
               <>
-                <div>Not logged in </div>
                 <div>
                   <LogInForm />
                 </div>

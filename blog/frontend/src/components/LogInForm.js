@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../assets/styles/login.css";
 
 function LogInForm(params) {
   axios.defaults.withCredentials = true;
@@ -45,26 +46,38 @@ function LogInForm(params) {
 
   return (
     <>
-      <div>
-        <div>
+      <div className="login-page-container">
+        <div className="login-image">
+          <img src={require(`../assets/images/login.jpg`)}></img>
+        </div>
+        <div className="login-form-container">
+          <div className="form-header"></div>
+
           <form onSubmit={login}>
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              name="username"
-              id="username"
-              onChange={(e) => setLoginUsername(e.target.value)}
-            ></input>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              onChange={(e) => setLoginPassword(e.target.value)}
-            ></input>
-            <input type="submit" value="Log in"></input>
+            <div className="sign-in-link">SIGN IN</div>
+
+            <div className="username-container">
+              <label htmlFor="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                onChange={(e) => setLoginUsername(e.target.value)}
+              ></input>
+            </div>
+            <div className="password-container">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                onChange={(e) => setLoginPassword(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <input type="submit" value="SIGN IN"></input>
+            </div>
           </form>
-          <div>U:{user.username}</div>
         </div>
       </div>
     </>

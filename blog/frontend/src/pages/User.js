@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState, setState } from "react";
 import LogInForm from "../components/LogInForm";
 import { useNavigate } from "react-router-dom";
+import "../assets/styles/user.css";
 
 function User(params) {
   axios.defaults.withCredentials = true;
