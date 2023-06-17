@@ -31,10 +31,11 @@
 input[type="text"],
 input[type="password"] {
   border: 1px solid black;
-  height: 2.5rem;
+  height: 2rem;
   width: 15rem;
   font-size: 1.3rem;
   border-radius: 20px;
+  padding: 10px;
 }
 
 .login-submit {

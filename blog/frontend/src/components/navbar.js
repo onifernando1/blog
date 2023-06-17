@@ -50,7 +50,7 @@ function Navbar(params) {
               <div className="icon-text">Home</div>
             </div>
           </Link>
-          <Link to="/posts/create">
+          <Link to="/posts/new">
             <div className="create-container">
               <div className="icon-container">
                 <img

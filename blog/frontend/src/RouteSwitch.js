@@ -8,6 +8,7 @@ import Navbar from "./components/navbar";
 import Post from "./components/Post";
 import Profile from "./pages/Profile";
 import User from "./pages/User";
+import CreatePost from "./pages/CreatePost";
 
 const RouteSwitch = () => {
   return (
@@ -18,6 +19,7 @@ const RouteSwitch = () => {
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/posts/create" element={<NewPostForm />} />
+          <Route path="/posts/new" element={<CreatePost />} />
           <Route path="/login" element={<LogInForm />} />
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/posts/:id" element={<Post />} />

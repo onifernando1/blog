@@ -47,14 +47,6 @@ function Profile(params) {
         </div>
       ) : (
         <div>
-          <div className="user-stuff">
-            <div className="login">
-              <Link to="/login">Login</Link>
-            </div>
-            <div className="signup">
-              <Link to="/signup">Sign Up</Link>
-            </div>
-          </div>
           <div>
             {loading ? (
               <div>Loading...</div>

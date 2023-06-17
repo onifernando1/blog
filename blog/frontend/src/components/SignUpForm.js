@@ -2,13 +2,16 @@ import React from "react";
 import { useState, setState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function SignUpForm(params) {
+  axios.defaults.withCredentials = true;
+  const navigate = useNavigate();
+
   const [registerName, setRegisterName] = useState("");
   const [registerUserame, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [currentUser, setCurrentUser] = useState("");
-
   const register = async (e) => {
     e.preventDefault();
     try {
