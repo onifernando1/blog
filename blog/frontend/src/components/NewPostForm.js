@@ -1,8 +1,26 @@
 import { useState, setState } from "react";
 import axios from "axios";
+import { useEffect } from "react";
 
 function NewPostForm(params) {
+  axios.defaults.withCredentials = true;
+
   const [newPostData, setNewPostData] = useState(null);
+
+  const [currentUser, setCurrentUser] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:9000/users/login`)
+      .then((response) => {
+        console.log("CURRENT USER response:", response);
+        setCurrentUser(response.data.user);
+        console.log(`The current user is: ${currentUser}`);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   const createPost = async (e) => {
     e.preventDefault();
@@ -40,8 +58,12 @@ function NewPostForm(params) {
         <input type="text" name="information" id="information"></input>
         <label htmlFor="image">Image</label>
         <input type="text" name="image" id="image"></input>
-        <label htmlFor="author">Author</label>
-        <input type="text" name="author" id="author"></input>
+        <input
+          type="hidden"
+          name="author"
+          id="author"
+          value={currentUser._id}
+        ></input>
         <input type="submit"></input>
       </form>
     </>
