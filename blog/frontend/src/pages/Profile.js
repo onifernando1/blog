@@ -73,7 +73,6 @@ function Profile(params) {
               </>
             )}
           </div>
-          <div>heya</div>{" "}
         </div>
       )}
     </div>

@@ -4,7 +4,7 @@
 }
 
 .login-form-container {
-  background-color: white;
+  /* background-color: red; */
   height: 30rem;
   width: 30rem;
 }
@@ -23,19 +23,29 @@
   flex-direction: column;
 }
 
+.username-container label,
+.password-container label {
+  margin-bottom: 7px;
+}
+
 input[type="text"],
 input[type="password"] {
   border: 1px solid black;
-  height: 2rem;
-  width: 13rem;
+  height: 2.5rem;
+  width: 15rem;
+  font-size: 1.3rem;
+  border-radius: 20px;
 }
 
-input[type="submit"] {
-  background-color: rgb(99, 108, 121);
+.login-submit {
+  background-color: rgb(44, 178, 245);
   color: white;
   border: none;
-  width: 9rem;
-  height: 2rem;
+  height: 2.7rem;
+  width: 15rem;
+  border-radius: 20px;
+  margin-top: 10px;
+  font-size: 1rem;
 }
 
 .sign-in-link {
@@ -46,16 +56,7 @@ input[type="submit"] {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.register-link {
-  background-color: rgb(1, 165, 190);
-  color: white;
-  height: 3rem;
-  width: 60%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 1.3rem;
 }
 
 .form-header {
@@ -64,4 +65,8 @@ input[type="submit"] {
 
 .login-image img {
   height: 30rem;
+}
+
+.sign-up-link-container {
+  text-decoration: underline;
 }

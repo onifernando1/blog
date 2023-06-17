@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../assets/styles/login.css";
+import { Link } from "react-router-dom";
 
 function LogInForm(params) {
   axios.defaults.withCredentials = true;
@@ -75,8 +76,17 @@ function LogInForm(params) {
               ></input>
             </div>
             <div>
-              <input type="submit" value="SIGN IN"></input>
+              <input
+                className="login-submit"
+                type="submit"
+                value="SIGN IN"
+              ></input>
             </div>
+            <Link to="/signup">
+              <div className="sign-up-link-container">
+                Don't have an account?
+              </div>
+            </Link>
           </form>
         </div>
       </div>
