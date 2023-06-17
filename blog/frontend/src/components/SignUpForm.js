@@ -30,6 +30,7 @@ function SignUpForm(params) {
         config
       );
       console.log(response.data);
+      navigate("/user");
     } catch (error) {
       console.error(error);
     }
