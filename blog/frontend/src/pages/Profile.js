@@ -17,6 +17,7 @@ function Profile(params) {
       .then((response) => {
         console.log("CURRENT USER response:", response);
         setCurrentUser(response.data.user);
+        console.log(`CURRENT USER IS ${currentUser}`);
         setLoading(false);
       })
       .catch((error) => {
@@ -39,34 +40,40 @@ function Profile(params) {
   };
   return (
     <div>
-      <div className="user-stuff">
-        <div className="login">
-          <Link to="/login">Login</Link>
-        </div>
-        <div className="signup">
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      </div>
-      <div>
-        {loading ? (
-          <div>Loading...</div>
-        ) : currentUser ? (
-          <>
-            <div>Logged in as: {currentUser._id}</div>
-            <div>
-              <button onClick={logout}>Log out </button>
+      {currentUser ? (
+        <div>OKI USER</div>
+      ) : (
+        <div>
+          <div className="user-stuff">
+            <div className="login">
+              <Link to="/login">Login</Link>
             </div>
-          </>
-        ) : (
-          <>
-            <div>Not logged in </div>
-            <div>
-              <LogInForm />
+            <div className="signup">
+              <Link to="/signup">Sign Up</Link>
             </div>
-          </>
-        )}
-      </div>
-      <div>heya</div>
+          </div>
+          <div>
+            {loading ? (
+              <div>Loading...</div>
+            ) : currentUser ? (
+              <>
+                <div>Logged in as: {currentUser._id}</div>
+                <div>
+                  <button onClick={logout}>Log out </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <div>Not logged in </div>
+                <div>
+                  <LogInForm />
+                </div>
+              </>
+            )}
+          </div>
+          <div>heya</div>{" "}
+        </div>
+      )}
     </div>
   );
 }

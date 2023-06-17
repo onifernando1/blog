@@ -35,7 +35,7 @@ function LogInForm(params) {
 
       setUser(response.data);
 
-      navigate("/posts/create");
+      navigate("/user");
 
       console.log(response.data);
     } catch (error) {
