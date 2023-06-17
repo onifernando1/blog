@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState, setState } from "react";
 import LogInForm from "../components/LogInForm";
 import { useNavigate } from "react-router-dom";
+import User from "./User";
 
 function Profile(params) {
   axios.defaults.withCredentials = true;
@@ -41,7 +42,9 @@ function Profile(params) {
   return (
     <div>
       {currentUser ? (
-        <div>OKI USER</div>
+        <div>
+          <User />
+        </div>
       ) : (
         <div>
           <div className="user-stuff">
