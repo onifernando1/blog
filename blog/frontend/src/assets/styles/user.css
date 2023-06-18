@@ -5,3 +5,9 @@
   font-weight: bold;
   gap: 15px;
 }
+
+.noposts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

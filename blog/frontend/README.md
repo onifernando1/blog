@@ -1,6 +1,5 @@
 TO DO:
 
-Clear form on submit
 Add validation
 Add cookies
 Sanitize form info

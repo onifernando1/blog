@@ -72,7 +72,9 @@ function User(params) {
             <button onClick={logout}>Log out </button>
           </div>
           {authorPosts.length < 1 ? (
-            <div>You have no posts</div>
+            <div className="noposts">
+              <div>You have no posts</div>
+            </div>
           ) : (
             <div>
               <div className="home-container">
