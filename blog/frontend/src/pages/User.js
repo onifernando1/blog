@@ -35,13 +35,20 @@ function User(params) {
         console.error(error);
       });
   };
+
+  const capitalizeName = () => {
+    let name = currentUser.name;
+    name = name.split("");
+    name[0] = name[0].toUpperCase();
+    name = name.join("");
+    return name;
+  };
+
   return (
     <div>
       {currentUser ? (
         <div>
-          <div>{currentUser.name}</div>
-          <div>{currentUser.username}</div>
-          <div>Posts</div>
+          <div>{capitalizeName()}'s posts</div>
           <div>
             <button onClick={logout}>Log out </button>
           </div>

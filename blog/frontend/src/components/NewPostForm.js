@@ -81,12 +81,14 @@ function NewPostForm(params) {
               cols="10"
             ></textarea>
           </div>
-          <input
-            type="hidden"
-            name="author"
-            id="author"
-            value={currentUser._id}
-          ></input>
+          {currentUser ? (
+            <input
+              type="hidden"
+              name="author"
+              id="author"
+              value={currentUser._id}
+            ></input>
+          ) : null}
           <div>
             <input type="submit" value="Create blog"></input>
           </div>
