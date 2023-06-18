@@ -12,6 +12,7 @@ function User(params) {
 
   const [currentUser, setCurrentUser] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [authorPosts, setAuthorPosts] = useState([]);
 
   useEffect(() => {
     axios
@@ -27,10 +28,12 @@ function User(params) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:9000/posts")
+      .get(`http://localhost:9000/users/detail`)
       .then((response) => {
-        console.log("Login response:", response);
-        setPosts(response.data.post_list);
+        console.log("CURRENT USER response:", response);
+        setAuthorPosts(response.data.authorPosts);
+        console.log("AUTHOR POSTS");
+        console.log(authorPosts);
       })
       .catch((error) => {
         console.error(error);
@@ -68,6 +71,7 @@ function User(params) {
             {capitalizeName()}'s posts
             <button onClick={logout}>Log out </button>
           </div>
+          {authorPosts ? <div></div> : <div>Yay</div>}
           <div></div>
         </div>
       ) : null}

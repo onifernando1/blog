@@ -77,6 +77,5 @@ exports.user_detail = asyncHandler(async (req, res, next) => {
     { author: res.locals.currentUser._id },
     "title information"
   ).exec();
-  console.log("OKAY WE CALLED THE FUNC");
   res.json({ authorPosts: authorPosts });
 });
