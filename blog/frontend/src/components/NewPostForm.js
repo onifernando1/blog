@@ -35,6 +35,7 @@ function NewPostForm(params) {
       title: title,
       information: information,
       author: e.target.elements.author.value,
+      // image: e.target.elements.image.value,
     };
     try {
       const config = {
@@ -89,6 +90,7 @@ function NewPostForm(params) {
               value={currentUser._id}
             ></input>
           ) : null}
+          <input type="hidden" name="image" id="image"></input>
           <div>
             <input type="submit" value="Create blog"></input>
           </div>

@@ -75,7 +75,7 @@ exports.user_logout = asyncHandler(async (req, res, next) => {
 exports.user_detail = asyncHandler(async (req, res, next) => {
   const authorPosts = await Post.find(
     { author: res.locals.currentUser._id },
-    "title information"
+    "title information image"
   ).exec();
   res.json({ authorPosts: authorPosts });
 });

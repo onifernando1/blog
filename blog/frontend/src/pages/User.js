@@ -71,7 +71,32 @@ function User(params) {
             {capitalizeName()}'s posts
             <button onClick={logout}>Log out </button>
           </div>
-          {authorPosts.length < 1 ? <div>You have no posts</div> : <div></div>}
+          {authorPosts.length < 1 ? (
+            <div>You have no posts</div>
+          ) : (
+            <div>
+              <div className="home-container">
+                <div className="blog-home-container">
+                  {authorPosts.map((post) => {
+                    return (
+                      <>
+                        <Link to={`/posts/${post._id}`}>
+                          <div className="individual-blog-container grow">
+                            <div class="blog-image">
+                              <img
+                                src={require(`../assets/images/${post.image}.jpg`)}
+                              ></img>
+                            </div>
+                            <div className="blog-title">{post.title}</div>
+                          </div>
+                        </Link>
+                      </>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
           <div></div>
         </div>
       ) : null}
