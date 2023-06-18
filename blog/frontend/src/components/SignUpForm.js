@@ -9,10 +9,16 @@ function SignUpForm(params) {
   const navigate = useNavigate();
 
   const [registerName, setRegisterName] = useState("");
-  const [registerUserame, setRegisterUsername] = useState("");
+  const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [currentUser, setCurrentUser] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
+
+  const resetForm = () => {
+    setRegisterName("");
+    setRegisterUsername("");
+    setRegisterPassword("");
+  };
 
   const register = async (e) => {
     e.preventDefault();
@@ -25,7 +31,7 @@ function SignUpForm(params) {
 
       const data = {
         name: registerName,
-        username: registerUserame,
+        username: registerUsername,
         password: registerPassword,
       };
 
