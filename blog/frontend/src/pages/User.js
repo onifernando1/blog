@@ -71,7 +71,7 @@ function User(params) {
             {capitalizeName()}'s posts
             <button onClick={logout}>Log out </button>
           </div>
-          {authorPosts ? <div></div> : <div>Yay</div>}
+          {authorPosts.length < 1 ? <div>You have no posts</div> : <div></div>}
           <div></div>
         </div>
       ) : null}
