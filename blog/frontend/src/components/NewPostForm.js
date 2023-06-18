@@ -1,6 +1,7 @@
 import { useState, setState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import "../assets/styles/newpost.css";
 
 function NewPostForm(params) {
   axios.defaults.withCredentials = true;
@@ -51,21 +52,40 @@ function NewPostForm(params) {
 
   return (
     <>
-      <form onSubmit={createPost}>
-        <label htmlFor="title">Title</label>
-        <input type="text" name="title" id="title"></input>
-        <label htmlFor="information">Information</label>
-        <input type="text" name="information" id="information"></input>
-        <label htmlFor="image">Image</label>
-        <input type="text" name="image" id="image"></input>
-        <input
-          type="hidden"
-          name="author"
-          id="author"
-          value={currentUser._id}
-        ></input>
-        <input type="submit"></input>
-      </form>
+      <div className="new-post-container">
+        <form className="new-post-form" onSubmit={createPost}>
+          <div>
+            {/* <label htmlFor="title">Title</label> */}
+            <input
+              type="text"
+              name="title"
+              id="title"
+              placeholder="Title"
+            ></input>
+          </div>
+          <div>
+            <input
+              type="textarea"
+              name="information"
+              id="information"
+              placeholder="Write your post here"
+            ></input>
+          </div>
+          {/* <div>
+          <label htmlFor="image">Image</label>
+          <input type="text" name="image" id="image"></input>
+        </div> */}
+          <input
+            type="hidden"
+            name="author"
+            id="author"
+            value={currentUser._id}
+          ></input>
+          <div>
+            <input type="submit" value="Create blog"></input>
+          </div>
+        </form>
+      </div>
     </>
   );
 }

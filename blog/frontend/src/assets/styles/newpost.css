@@ -1,0 +1,11 @@
+.new-post-form input {
+  border: 0px solid white;
+  outline: none;
+  width: 30rem;
+}
+
+.new-post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
