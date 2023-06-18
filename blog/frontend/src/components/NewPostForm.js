@@ -7,8 +7,9 @@ function NewPostForm(params) {
   axios.defaults.withCredentials = true;
 
   const [newPostData, setNewPostData] = useState(null);
-
   const [currentUser, setCurrentUser] = useState([]);
+  const [title, setTitle] = useState("");
+  const [information, setInformation] = useState("");
 
   useEffect(() => {
     axios
@@ -23,13 +24,17 @@ function NewPostForm(params) {
       });
   }, []);
 
+  const resetForm = () => {
+    setTitle("");
+    setInformation("");
+  };
+
   const createPost = async (e) => {
     e.preventDefault();
     const newPost = {
-      title: e.target.elements.title.value,
-      information: e.target.elements.information.value,
+      title: title,
+      information: information,
       author: e.target.elements.author.value,
-      image: e.target.elements.image.value,
     };
     try {
       const config = {
@@ -45,6 +50,7 @@ function NewPostForm(params) {
       );
       console.log(response.data);
       console.log(newPostData);
+      resetForm();
     } catch (error) {
       console.error(error);
     }
@@ -56,6 +62,8 @@ function NewPostForm(params) {
         <form className="new-post-form" onSubmit={createPost}>
           <div className="new-post-title">
             <input
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
               type="text"
               name="title"
               id="title"
@@ -64,6 +72,8 @@ function NewPostForm(params) {
           </div>
           <div>
             <textarea
+              onChange={(e) => setInformation(e.target.value)}
+              value={information}
               name="information"
               id="information"
               placeholder="Write your post here"
@@ -71,10 +81,6 @@ function NewPostForm(params) {
               cols="10"
             ></textarea>
           </div>
-          {/* <div>
-          <label htmlFor="image">Image</label>
-          <input type="text" name="image" id="image"></input>
-        </div> */}
           <input
             type="hidden"
             name="author"
