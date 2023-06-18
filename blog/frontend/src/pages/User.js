@@ -11,12 +11,26 @@ function User(params) {
   const navigate = useNavigate();
 
   const [currentUser, setCurrentUser] = useState([]);
+  const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     axios
       .get(`http://localhost:9000/users/login`)
       .then((response) => {
         console.log("CURRENT USER response:", response);
         setCurrentUser(response.data.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:9000/posts")
+      .then((response) => {
+        console.log("Login response:", response);
+        setPosts(response.data.post_list);
       })
       .catch((error) => {
         console.error(error);
@@ -48,10 +62,11 @@ function User(params) {
     <div>
       {currentUser ? (
         <div>
-          <div>{capitalizeName()}'s posts</div>
           <div>
+            {capitalizeName()}'s posts
             <button onClick={logout}>Log out </button>
           </div>
+          <div></div>
         </div>
       ) : null}
     </div>

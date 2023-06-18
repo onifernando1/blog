@@ -3,6 +3,7 @@ const asyncHandler = require("express-async-handler");
 const { v4: uuidv4 } = require("uuid");
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
+const Post = require("../models/post.js");
 
 // Create User signup form
 
@@ -69,4 +70,13 @@ exports.user_logout = asyncHandler(async (req, res, next) => {
     }
   });
   res.send("Logged out ");
+});
+
+exports.user_detail = asyncHandler(async (req, res, next) => {
+  const authorPosts = await Post.find(
+    { author: res.locals.currentUser._id },
+    "title information"
+  ).exec();
+  console.log("OKAY WE CALLED THE FUNC");
+  res.json({ authorPosts: authorPosts });
 });
