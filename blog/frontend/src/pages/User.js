@@ -51,11 +51,13 @@ function User(params) {
   };
 
   const capitalizeName = () => {
-    let name = currentUser.name;
-    name = name.split("");
-    name[0] = name[0].toUpperCase();
-    name = name.join("");
-    return name;
+    if (currentUser.name) {
+      const name = currentUser.name;
+      name = name.split("");
+      name[0] = name[0].toUpperCase();
+      name = name.join("");
+      return name;
+    }
   };
 
   return (
