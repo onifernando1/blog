@@ -12,6 +12,8 @@ function SignUpForm(params) {
   const [registerUserame, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [currentUser, setCurrentUser] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
+
   const register = async (e) => {
     e.preventDefault();
     try {
@@ -33,9 +35,14 @@ function SignUpForm(params) {
         config
       );
       console.log(response.data);
+      resetForm();
+      setErrorMessage(false);
+
       navigate("/user");
     } catch (error) {
       console.error(error);
+      setErrorMessage(true);
+      resetForm();
     }
   };
 
@@ -49,6 +56,9 @@ function SignUpForm(params) {
           <div className="form-header"></div>
 
           <form onSubmit={register}>
+            {errorMessage ? (
+              <div className="error">Sign Up failed. Please try again.</div>
+            ) : null}
             <div className="sign-in-link">SIGN UP</div>
             <div className="username-container">
               <label htmlFor="name">Name</label>
@@ -56,6 +66,7 @@ function SignUpForm(params) {
                 type="text"
                 name="name"
                 id="name"
+                value={registerName}
                 onChange={(e) => setRegisterName(e.target.value)}
               ></input>
             </div>
@@ -65,6 +76,7 @@ function SignUpForm(params) {
                 type="text"
                 name="username"
                 id="username"
+                value={registerUsername}
                 onChange={(e) => setRegisterUsername(e.target.value)}
               ></input>
             </div>
@@ -74,6 +86,7 @@ function SignUpForm(params) {
                 type="password"
                 name="password"
                 id="password"
+                value={registerPassword}
                 onChange={(e) => setRegisterPassword(e.target.value)}
               ></input>
             </div>
