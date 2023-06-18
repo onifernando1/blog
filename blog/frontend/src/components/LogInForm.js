@@ -12,6 +12,12 @@ function LogInForm(params) {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [user, setUser] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
+
+  const resetForm = () => {
+    setLoginUsername("");
+    setLoginPassword("");
+  };
 
   const login = async (e) => {
     e.preventDefault();
@@ -37,10 +43,16 @@ function LogInForm(params) {
 
       setUser(response.data);
 
+      resetForm();
+
+      setErrorMessage(false);
+
       navigate("/user");
 
       console.log(response.data);
     } catch (error) {
+      resetForm();
+      setErrorMessage(true);
       console.error(error);
     }
   };
@@ -55,6 +67,9 @@ function LogInForm(params) {
           <div className="form-header"></div>
 
           <form onSubmit={login}>
+            {errorMessage ? (
+              <div className="error">Log in failed. Please try again.</div>
+            ) : null}
             <div className="sign-in-link">SIGN IN</div>
 
             <div className="username-container">
@@ -63,6 +78,7 @@ function LogInForm(params) {
                 type="text"
                 name="username"
                 id="username"
+                value={loginUsername}
                 onChange={(e) => setLoginUsername(e.target.value)}
               ></input>
             </div>
@@ -72,6 +88,7 @@ function LogInForm(params) {
                 type="password"
                 name="password"
                 id="password"
+                value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
               ></input>
             </div>
