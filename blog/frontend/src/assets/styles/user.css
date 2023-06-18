@@ -1,0 +1,7 @@
+.user-posts-info {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  gap: 15px;
+}

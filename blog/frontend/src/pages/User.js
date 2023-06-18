@@ -67,7 +67,7 @@ function User(params) {
     <div>
       {currentUser ? (
         <div>
-          <div>
+          <div className="user-posts-info">
             {capitalizeName()}'s posts
             <button onClick={logout}>Log out </button>
           </div>
