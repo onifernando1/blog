@@ -64,12 +64,13 @@ function NewPostForm(params) {
             ></input>
           </div>
           <div>
-            <input
-              type="textarea"
+            <textarea
               name="information"
               id="information"
               placeholder="Write your post here"
-            ></input>
+              rows="14"
+              cols="10"
+            ></textarea>
           </div>
           {/* <div>
           <label htmlFor="image">Image</label>

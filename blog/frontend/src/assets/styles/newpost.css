@@ -9,3 +9,18 @@
   justify-content: center;
   align-items: center;
 }
+
+.textarea-input.text input {
+  background-color: red;
+  height: 20rem;
+}
+
+#information {
+  border: 0px solid white;
+  outline: none;
+  width: 30rem;
+  background-color: red;
+  height: 20rem;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
