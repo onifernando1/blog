@@ -1,7 +1,8 @@
-.new-post-form input {
+.new-post-form > div input {
   border: 0px solid white;
   outline: none;
   width: 30rem;
+  padding: 0px;
 }
 
 .new-post-container {
@@ -10,17 +11,24 @@
   align-items: center;
 }
 
-.textarea-input.text input {
-  background-color: red;
-  height: 20rem;
+.new-post-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 #information {
   border: 0px solid white;
   outline: none;
   width: 30rem;
-  background-color: red;
   height: 20rem;
   white-space: pre-wrap;
   overflow-wrap: break-word;
+}
+
+.new-post-form input[type="submit"] {
+  background-color: rgb(112, 217, 187);
+  width: 10rem;
+  border-radius: 20px;
 }

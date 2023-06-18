@@ -55,7 +55,6 @@ function NewPostForm(params) {
       <div className="new-post-container">
         <form className="new-post-form" onSubmit={createPost}>
           <div>
-            {/* <label htmlFor="title">Title</label> */}
             <input
               type="text"
               name="title"
